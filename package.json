@@ -1,27 +1,50 @@
 {
-  "name": "linkpulse",
+  "name": "hopline",
   "version": "0.1.0",
   "private": true,
   "scripts": {
     "dev": "next dev",
     "build": "next build",
+    "vercel-build": "npm run db:migrate && next build",
     "start": "next start",
-    "lint": "eslint"
+    "lint": "eslint",
+    "typecheck": "tsc --noEmit",
+    "db:generate": "drizzle-kit generate",
+    "db:migrate": "node scripts/migrate.mjs",
+    "db:studio": "drizzle-kit studio"
   },
   "dependencies": {
+    "@vercel/functions": "^3.9.11",
+    "clsx": "^2.1.1",
+    "drizzle-orm": "^0.45.3",
+    "geist": "^1.7.2",
+    "lucide-react": "^1.52.0",
+    "nanoid": "^6.0.1",
+    "next": "15.5.27",
+    "pg": "^8.23.1",
     "react": "19.1.0",
     "react-dom": "19.1.0",
-    "next": "15.5.27"
+    "recharts": "^3.10.1",
+    "server-only": "^0.0.1",
+    "sonner": "^2.0.8",
+    "ua-parser-js": "^2.0.10",
+    "zod": "^4.6.5"
   },
   "devDependencies": {
-    "typescript": "^5",
+    "@eslint/eslintrc": "^3",
+    "@tailwindcss/postcss": "^4",
     "@types/node": "^20",
+    "@types/pg": "^8.23.1",
     "@types/react": "^19",
     "@types/react-dom": "^19",
-    "@tailwindcss/postcss": "^4",
-    "tailwindcss": "^4",
+    "drizzle-kit": "^0.31.11",
     "eslint": "^9",
     "eslint-config-next": "15.5.27",
-    "@eslint/eslintrc": "^3"
+    "tailwindcss": "^4",
+    "tsx": "^4.23.15",
+    "typescript": "^5"
+  },
+  "engines": {
+    "node": ">=20"
   }
 }
